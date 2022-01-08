@@ -1,3 +1,3 @@
 # Introduction to Go #
 
-> Playground with Go language.
+> Playground for Go language.
