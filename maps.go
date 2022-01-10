@@ -9,6 +9,6 @@ func main() {
 	}
 
 	for k, v := range firstReleases {
-		fmt.Printf("%s was first relesed in %d\n", k, v)
+		fmt.Printf("%s was first released in %d\n", k, v)
 	}
 }
