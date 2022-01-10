@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 )
 
 func main() {
@@ -19,4 +20,19 @@ func main() {
 	fmt.Printf("classic languages: %v\n", classics)
 	fmt.Printf("modern languages: %v\n", modern)
 	fmt.Printf("new languages: %v\n", new)
+	fmt.Println("|:-------------------------:|")
+
+	allLangs := languages[:]
+	fmt.Println(reflect.TypeOf(allLangs).Kind())
+
+	frameworks := []string{
+		"React", "Vue", "Angular", "Svetle",
+		"Laravel", "Django", "Flask", "Fiber",
+	}
+
+	jsFrameworks := frameworks[0:4:4]
+	frameworks = append(frameworks, "Meteor")
+
+	fmt.Printf("all frameworks: %v\n", frameworks)
+	fmt.Printf("js frameworks: %v\n", jsFrameworks)
 }
