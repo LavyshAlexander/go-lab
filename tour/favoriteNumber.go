@@ -10,5 +10,5 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 
 	favoriteNumber := rand.Intn(100)
-	fmt.Println("My favorite number is:", favoriteNumber)
+	fmt.Println("My favorite random number is:", favoriteNumber)
 }
