@@ -10,6 +10,12 @@ func swap(x, y string) (string, string) {
 	return y, x
 }
 
+func mod(a, b int) (mod, div int) {
+	mod = a % b
+	div = a / b
+	return
+}
+
 func main() {
 	fmt.Println(add(10, 32))
 
@@ -18,4 +24,7 @@ func main() {
 
 	a, b := swap("hello", "world")
 	fmt.Println(a, b)
+
+	mod, div := mod(10, 3)
+	fmt.Println(mod, div)
 }
