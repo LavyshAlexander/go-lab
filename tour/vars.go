@@ -47,4 +47,5 @@ func main() {
 	fmt.Println(needFloat(Small))
 	fmt.Println(needFloat(Big))
 	// fmt.Println(needInt(Big)) // overflow
+	// fmt.Printf("%T", Big) // even here will throw compile error, cause Big is untyped int constant.
 }
