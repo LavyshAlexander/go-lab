@@ -11,4 +11,8 @@ func main() {
 	var z uint = uint(f)
 
 	fmt.Println(x, y, f, z)
+
+	negative := -42
+	un := uint(negative)
+	fmt.Println(negative, un)
 }
