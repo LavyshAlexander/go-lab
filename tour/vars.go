@@ -20,5 +20,8 @@ func main() {
 
 	fmt.Printf("Type %T, value %v\n", ToBe, ToBe)
 	fmt.Printf("Type %T, value %v\n", MaxInt, MaxInt)
-	fmt.Printf("Type %T, value %v", root, root)
+	fmt.Printf("Type %T, value %v\n", root, root)
+
+	var s string
+	fmt.Printf("v - %v, q - %q", s, s)
 }
