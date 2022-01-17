@@ -5,6 +5,8 @@ import (
 	"math/cmplx"
 )
 
+const Pi = 3.14
+
 var (
 	count  int
 	ToBe   bool       = true
@@ -23,5 +25,7 @@ func main() {
 	fmt.Printf("Type %T, value %v\n", root, root)
 
 	var s string
-	fmt.Printf("v - %v, q - %q", s, s)
+	fmt.Printf("v - %v, q - %q\n", s, s)
+
+	fmt.Println("happy", Pi, "day")
 }

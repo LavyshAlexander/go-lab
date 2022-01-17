@@ -1,3 +1,3 @@
 package shared
 
-var Answer int = 42
+const Answer int = 42
