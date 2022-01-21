@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-const epsilon float64 = 0.1
+const epsilon float64 = 0.0001
 
 func squareRoot(x float64) (z float64) {
 	z = x / 2
@@ -21,5 +21,14 @@ func squareRoot(x float64) (z float64) {
 }
 
 func main() {
-	fmt.Println(squareRoot(200))
+	values := []float64{
+		200,
+		10087,
+		1000046543,
+	}
+
+	for _, val := range values {
+		sqrt := squareRoot(val)
+		fmt.Printf("squareRoot(%v) = %v - math.Sqrt() = %v\n", val, sqrt, sqrt-math.Sqrt(val))
+	}
 }
