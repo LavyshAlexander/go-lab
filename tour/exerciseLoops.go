@@ -8,7 +8,7 @@ import (
 const epsilon float64 = 0.1
 
 func squareRoot(x float64) (z float64) {
-	z = 1
+	z = x / 2
 	iter := 0
 
 	for math.Abs(z*z-x) > epsilon {
