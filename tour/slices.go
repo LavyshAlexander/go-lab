@@ -44,6 +44,19 @@ func main() {
 	if sNil == nil {
 		fmt.Println("It is nil!")
 	}
+
+	fmt.Println("-- Creating a slice with make --")
+	a5 := make([]int, 5)
+	printSlice(a5)
+
+	b05 := make([]int, 0, 5)
+	printSlice(b05)
+
+	cb2 := b05[:2]
+	printSlice(cb2)
+
+	dc25 := cb2[2:5]
+	printSlice(dc25)
 }
 
 func printSlice(s []int) {
