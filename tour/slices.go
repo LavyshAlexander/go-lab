@@ -79,6 +79,28 @@ func main() {
 	for _, r := range board {
 		fmt.Printf("%s\n", strings.Join(r, " "))
 	}
+
+	fmt.Println("-- Appending to a slice --")
+	var sExt []int
+	printSlice(sExt)
+
+	sExt = append(sExt, 100)
+	printSlice(sExt)
+
+	sExt = append(sExt, 200)
+	printSlice(sExt)
+
+	sExt = append(sExt, 201)
+	printSlice(sExt)
+
+	sExt = append(sExt, 202)
+	printSlice(sExt)
+
+	sExt = append(sExt, 300, 400, 500)
+	printSlice(sExt)
+
+	sExt = append(sExt, sExt...)
+	printSlice(sExt)
 }
 
 func printSlice(s []int) {
