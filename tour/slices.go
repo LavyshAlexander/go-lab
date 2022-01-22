@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	names := [4]string{
@@ -57,6 +60,25 @@ func main() {
 
 	dc25 := cb2[2:5]
 	printSlice(dc25)
+
+	fmt.Println("-- Slices of slices --")
+	// tic-tac-toe board
+	board := [][]string{
+		{"_", "_", "_"},
+		{"_", "_", "_"},
+		{"_", "_", "_"},
+	}
+
+	// players moves
+	board[0][0] = "X"
+	board[2][2] = "O"
+	board[1][2] = "X"
+	board[1][0] = "O"
+	board[0][2] = "X"
+
+	for _, r := range board {
+		fmt.Printf("%s\n", strings.Join(r, " "))
+	}
 }
 
 func printSlice(s []int) {
