@@ -11,8 +11,8 @@ func main() {
 	}
 	fmt.Println(names)
 
-	a := names[0:2]
-	b := names[1:3]
+	a := names[:2]
+	b := names[1:]
 	fmt.Println(a, b)
 
 	b[0] = "XXX"
