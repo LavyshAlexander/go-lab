@@ -36,7 +36,14 @@ func main() {
 	printSlice(s)
 
 	underlyingArray := *(*[4]int)(s)
-	fmt.Printf("type = %T of %v", underlyingArray, underlyingArray)
+	fmt.Printf("type = %T of %v\n", underlyingArray, underlyingArray)
+
+	fmt.Println("-- zero value --")
+	var sNil []int
+	fmt.Println(sNil, len(sNil), cap(sNil))
+	if sNil == nil {
+		fmt.Println("It is nil!")
+	}
 }
 
 func printSlice(s []int) {
