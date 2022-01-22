@@ -34,6 +34,9 @@ func main() {
 
 	s = s[:4]
 	printSlice(s)
+
+	underlyingArray := *(*[4]int)(s)
+	fmt.Printf("type = %T of %v", underlyingArray, underlyingArray)
 }
 
 func printSlice(s []int) {
