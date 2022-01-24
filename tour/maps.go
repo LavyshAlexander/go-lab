@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type Vertex struct {
 	Lat, Long float64
@@ -28,4 +31,24 @@ func main() {
 	delete(m1, "Answer")
 	v, ok := m1["Answer"]
 	fmt.Println("The value:", v, "Present?", ok)
+
+	fmt.Println("-- Exercise --")
+	counts := WordCount("Implement WordCount. It should return a map of the counts of each “word” in the string s. The wc.Test function runs a test suite against the provided function and prints success or failure.You might find strings.Fields helpful.")
+	fmt.Println(counts)
+}
+
+func WordCount(s string) (counts map[string]int) {
+	counts = make(map[string]int)
+
+	fields := strings.Fields(s)
+	for _, f := range fields {
+		_, ok := counts[f]
+		if !ok {
+			counts[f] = 0
+		}
+
+		counts[f] += 1
+	}
+
+	return
 }
