@@ -28,6 +28,11 @@ func (v *Vertex) Scale(factor float64) {
 	v.Y = v.Y * factor
 }
 
+func ScaleFunc(v *Vertex, factor float64) {
+	v.X = v.X * factor
+	v.Y = v.Y * factor
+}
+
 func main() {
 	v := Vertex{3, 4}
 	fmt.Println(v.Abs())
@@ -38,4 +43,9 @@ func main() {
 	fmt.Println("-- Pointer receiver --")
 	v.Scale(10)
 	fmt.Println(v.Abs())
+
+	p := &Vertex{3, 4}
+	p.Scale(3)
+	ScaleFunc(p, 8)
+	fmt.Println(p, p.Abs())
 }
