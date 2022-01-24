@@ -45,6 +45,6 @@ func main() {
 	i.M()
 }
 
-func describe(i I) {
+func describe(i interface{}) {
 	fmt.Printf("(%v, %T)\n", i, i)
 }
