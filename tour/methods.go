@@ -33,6 +33,10 @@ func ScaleFunc(v *Vertex, factor float64) {
 	v.Y = v.Y * factor
 }
 
+type Abser interface {
+	Abs() float64
+}
+
 func main() {
 	v := Vertex{3, 4}
 	fmt.Println(v.Abs())
@@ -48,4 +52,17 @@ func main() {
 	p.Scale(3)
 	ScaleFunc(p, 8)
 	fmt.Println(p, p.Abs())
+
+	fmt.Println("-- Interfaces --")
+	var a Abser
+
+	a = f
+	fmt.Println(a.Abs())
+
+	a = &v
+	fmt.Println(a.Abs())
+
+	// a = v // cannot use v (type Vertex) as type Abser in assignment:
+	// Vertex does not implement Abser (Abs method has pointer receiver)
+	// fmt.Println(a.Abs())
 }
