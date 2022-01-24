@@ -18,4 +18,14 @@ func main() {
 	}
 
 	fmt.Println(m)
+
+	fmt.Println("-- mutating maps --")
+	m1 := make(map[string]int)
+
+	m1["Answer"] = 42
+	fmt.Println("The answer:", m1["Answer"])
+
+	delete(m1, "Answer")
+	v, ok := m1["Answer"]
+	fmt.Println("The value:", v, "Present?", ok)
 }
