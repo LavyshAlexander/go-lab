@@ -108,17 +108,13 @@ func main() {
 	fmt.Println("\n\n-- Go Slices: usage and internals --")
 	// array can be initialized with omitted size in special way:
 	omittedSizeArray := [...]string{"Penn", "Teller"}
-	printStringSlice(omittedSizeArray[:])
+	printSlice(omittedSizeArray[:])
 
 	fmt.Println(len(([]int)(nil)))
 	appendToNil := append(([]int)(nil)[:], 123)
 	fmt.Println(appendToNil)
 }
 
-func printSlice(s []int) {
-	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
-}
-
-func printStringSlice(s []string) {
+func printSlice(s ...interface{}) {
 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
