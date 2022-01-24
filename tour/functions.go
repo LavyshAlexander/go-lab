@@ -37,6 +37,21 @@ func main() {
 			neg(-2*i),
 		)
 	}
+
+	fmt.Println("-- Exercise --")
+	f := fibonacci()
+	for i := 0; i < 10; i++ {
+		fmt.Println(f())
+	}
+}
+
+func fibonacci() func() int {
+	current, next := 0, 1
+
+	return func() int {
+		defer func() { current, next = next, (current + next) }()
+		return current
+	}
 }
 
 func adder() func(int) int {
