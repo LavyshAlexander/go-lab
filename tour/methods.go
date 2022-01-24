@@ -23,10 +23,19 @@ func (f MyFloat) Abs() float64 {
 	return float64(f)
 }
 
+func (v *Vertex) Scale(factor float64) {
+	v.X = v.X * factor
+	v.Y = v.Y * factor
+}
+
 func main() {
 	v := Vertex{3, 4}
 	fmt.Println(v.Abs())
 
 	f := MyFloat(-math.Sqrt2)
 	fmt.Println(f.Abs())
+
+	fmt.Println("-- Pointer receiver --")
+	v.Scale(10)
+	fmt.Println(v.Abs())
 }
