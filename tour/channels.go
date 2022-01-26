@@ -29,4 +29,21 @@ func main() {
 	fmt.Println(<-ch)
 	ch <- 3
 	fmt.Println(<-ch)
+
+	fmt.Println("-- Range and Close --")
+
+	cFib := make(chan int, 10)
+	go fibonacci(cap(cFib), cFib)
+	for i := range cFib {
+		fmt.Println(i)
+	}
+}
+
+func fibonacci(n int, cFib chan int) {
+	x, y := 0, 1
+	for i := 0; i < n; i++ {
+		cFib <- x
+		x, y = y, x+y
+	}
+	close(cFib)
 }
