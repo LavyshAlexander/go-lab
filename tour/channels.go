@@ -37,6 +37,22 @@ func main() {
 	for i := range cFib {
 		fmt.Println(i)
 	}
+
+	fmt.Println("-- select --")
+	cSel := make(chan int)
+	quit := make(chan int)
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println(<-cSel)
+			// if i == 7 {
+			// 	quit <- 0
+			// }
+		}
+		quit <- 0 // if comment -> obviously deadlock
+	}()
+
+	fibonacciSelect(cSel, quit)
 }
 
 func fibonacci(n int, cFib chan int) {
@@ -45,5 +61,19 @@ func fibonacci(n int, cFib chan int) {
 		cFib <- x
 		x, y = y, x+y
 	}
-	close(cFib)
+	close(cFib) // if not close will be deadlock
+}
+
+func fibonacciSelect(c, quit chan int) {
+	x, y := 0, 1
+
+	for {
+		select {
+		case c <- x:
+			x, y = y, x+y
+		case <-quit:
+			fmt.Println("quit")
+			return
+		}
+	}
 }
