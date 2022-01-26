@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func sum(s []int, c chan int) {
 	sum := 0
@@ -53,6 +56,23 @@ func main() {
 	}()
 
 	fibonacciSelect(cSel, quit)
+
+	fmt.Println("-- default select --")
+	tick := time.Tick(100 * time.Millisecond)
+	boom := time.After(500 * time.Millisecond)
+
+	for {
+		select {
+		case t := <-tick:
+			fmt.Println("tick.", t)
+		case b := <-boom:
+			fmt.Println("BOOM!", b)
+			return
+		default:
+			fmt.Println("      .")
+			time.Sleep(50 * time.Millisecond)
+		}
+	}
 }
 
 func fibonacci(n int, cFib chan int) {
