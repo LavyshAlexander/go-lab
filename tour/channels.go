@@ -22,4 +22,11 @@ func main() {
 
 	fmt.Println(x, y, x+y)
 
+	fmt.Println("-- Buffered channel --")
+	ch := make(chan int, 2)
+	ch <- 1
+	ch <- 2
+	fmt.Println(<-ch)
+	ch <- 3
+	fmt.Println(<-ch)
 }
