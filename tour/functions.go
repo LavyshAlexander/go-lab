@@ -48,6 +48,19 @@ func main() {
 	sum(1, 2)
 	sum(1, 2, 3)
 	sum([]int{1, 2, 3, 4, 5, 6}...)
+
+	fmt.Println("-- recursive closure --")
+	// Will through UndeclaredName compile error if it will be undeclared.
+	var fib func(int) int
+
+	fib = func(n int) int {
+		if n < 2 {
+			return n
+		}
+
+		return fib(n-1) + fib(n-2)
+	}
+	fmt.Println(fib(7))
 }
 
 func sum(nums ...int) {
