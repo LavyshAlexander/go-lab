@@ -18,7 +18,7 @@ func (c *CounterContainer) inc(name string) {
 
 func main() {
 	c := CounterContainer{
-		counters: map[string]int{"a": 0, "b": 0},
+		counters: make(map[string]int),
 	}
 
 	var wg sync.WaitGroup
