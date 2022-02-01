@@ -5,6 +5,20 @@ import (
 	"sort"
 )
 
+type byLength []string
+
+func (l byLength) Len() int {
+	return len(l)
+}
+
+func (l byLength) Swap(i, j int) {
+	l[i], l[j] = l[j], l[i]
+}
+
+func (l byLength) Less(i, j int) bool {
+	return len(l[i]) < len(l[j])
+}
+
 func main() {
 	strs := []string{"c", "a", "b"}
 	sort.Strings(strs)
@@ -16,4 +30,9 @@ func main() {
 
 	s := sort.IntsAreSorted(ints)
 	fmt.Println("Sorted:", s)
+
+	fmt.Println("-- custom sort function --")
+	fruits := []string{"peach", "banana", "kiwi"}
+	sort.Sort(byLength(fruits))
+	fmt.Println(fruits)
 }
