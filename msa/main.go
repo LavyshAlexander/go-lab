@@ -15,7 +15,7 @@ func main() {
 
 	sm := http.NewServeMux()
 	sm.Handle("/", hh)
-	sm.Handle("/goodbuy", gh)
+	sm.Handle("/goodbye", gh)
 
 	http.ListenAndServe(":9090", sm)
 }
