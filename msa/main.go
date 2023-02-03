@@ -1,23 +1,18 @@
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
+	"LavyshAlexander/intro-go/msa/handlers"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		body, err := ioutil.ReadAll(r.Body)
-		if err != nil {
-			http.Error(w, "Error with request", http.StatusBadRequest)
-			return
-		}
+	l := log.New(os.Stdout, "product-api", log.LstdFlags)
+	hh := handlers.NewHello(l)
 
-		log.Printf("Request body: %s\n", body)
-		fmt.Fprintf(w, "Hello %s", body)
-	})
+	sm := http.NewServeMux()
+	sm.Handle("/", hh)
 
-	http.ListenAndServe(":9090", nil)
+	http.ListenAndServe(":9090", sm)
 }
